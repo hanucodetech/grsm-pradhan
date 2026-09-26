@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>राजेश कुमार — ग्राम प्रधान प्रत्याशी | डेमो</title>
+<meta name="description" content="ग्राम पंचायत प्रत्याशी की नमूना वेबसाइट — Hanucode द्वारा">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Mukta:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5b43'/%3E%3Cpath d='M16 6l7 10-7 10-7-10z' fill='%23e3a52a'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f6f1e6; --surface:#fffaf0; --ink:#1b2620; --muted:#5b6660; --line:#e2d8c3;
+  --green:#1f5b43; --green-d:#15402f; --haldi:#e3a52a; --haldi-d:#b87d0f;
+  --font-display:'Tiro Devanagari Hindi',serif; --font-body:'Mukta',system-ui,sans-serif;
+  --r:14px; --max:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.demo-bar{background:var(--ink);color:#f6f1e6;font-size:14px;text-align:center;padding:8px 16px}
+.demo-bar b{color:var(--haldi)}
+header.nav{position:sticky;top:0;z-index:20;background:rgba(246,241,230,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:18px}
+.brand svg{width:34px;height:34px;color:var(--green)}
+.nav ul{display:flex;gap:26px;list-style:none;font-weight:500;font-size:16px}
+.nav ul a{text-decoration:none;color:var(--muted)}
+.nav ul a:hover{color:var(--green)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-family:inherit;font-weight:700;font-size:16px;padding:12px 22px;border-radius:999px;text-decoration:none;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-d)}
+.btn-haldi{background:var(--haldi);color:var(--ink)}
+.btn-haldi:hover{background:#f0b640}
+.btn-ghost{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}
+.btn svg{width:18px;height:18px}
+
+/* hero */
+.hero{padding:56px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.tag{display:inline-block;background:#f1e2bd;color:var(--haldi-d);font-weight:700;font-size:14px;padding:5px 14px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(44px,6vw,76px);line-height:1.1;letter-spacing:-.5px}
+.hero h1 span{color:var(--green)}
+.hero .role{font-size:21px;font-weight:500;margin:12px 0 8px}
+.hero p.lead{color:var(--muted);font-size:18px;max-width:34em;margin-bottom:28px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero-img{position:relative}
+.hero-img img{border-radius:22px;aspect-ratio:4/4.3;object-fit:cover;object-position:52% 30%;width:100%;box-shadow:0 30px 60px -30px rgba(27,38,32,.45)}
+.ballot{position:absolute;left:-26px;bottom:28px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 18px;display:flex;gap:14px;align-items:center;box-shadow:0 14px 30px -14px rgba(0,0,0,.3)}
+.ballot .num{width:52px;height:52px;border-radius:12px;background:var(--green);color:#fff;font-weight:800;font-size:26px;display:grid;place-items:center}
+.ballot small{display:block;color:var(--muted);font-size:13px;line-height:1.3}
+.ballot b{font-size:17px}
+
+/* countdown */
+.count{background:var(--green);color:#f6f1e6}
+.count .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding-top:26px;padding-bottom:26px}
+.count h3{font-weight:700;font-size:20px}
+.count h3 small{display:block;font-weight:400;font-size:14px;opacity:.8}
+.timer{display:flex;gap:12px}
+.timer div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;min-width:76px;text-align:center;padding:8px 10px}
+.timer b{display:block;font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums;color:var(--haldi)}
+.timer span{font-size:13px;opacity:.85}
+
+section{padding:88px 0}
+.eyebrow{color:var(--haldi-d);font-weight:700;font-size:15px;letter-spacing:.5px;margin-bottom:8px}
+h2{font-family:var(--font-display);font-weight:400;font-size:clamp(32px,4vw,46px);line-height:1.2;margin-bottom:16px}
+.sub{color:var(--muted);max-width:40em}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about img{border-radius:20px;aspect-ratio:4/3;object-fit:cover}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.facts div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+.facts small{color:var(--muted);font-size:14px}
+.facts b{display:block;font-size:17px}
+
+/* sankalp */
+.sankalp{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.card .ic{width:46px;height:46px;border-radius:12px;background:#f1e2bd;color:var(--haldi-d);display:grid;place-items:center;margin-bottom:16px}
+.card .ic svg{width:24px;height:24px}
+.card h4{font-size:20px;font-weight:700;margin-bottom:6px}
+.card p{color:var(--muted);font-size:16px}
+
+/* work stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.stat{border-left:3px solid var(--haldi);padding:6px 0 6px 18px}
+.stat b{font-size:42px;font-weight:800;line-height:1.1;color:var(--green);font-variant-numeric:tabular-nums}
+.stat span{display:block;color:var(--muted);font-size:16px}
+.timeline{margin-top:48px;display:grid;gap:12px}
+.tl{display:grid;grid-template-columns:110px 1fr;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px}
+.tl time{font-weight:700;color:var(--haldi-d)}
+
+/* form */
+.samasya .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+form{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;display:grid;gap:14px}
+label{font-weight:600;font-size:15px;display:grid;gap:6px}
+input,select,textarea{font-family:inherit;font-size:16px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--green)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ok{display:none;background:#e3efe8;color:var(--green-d);padding:12px 14px;border-radius:10px;font-weight:600}
+.checks{list-style:none;margin-top:22px;display:grid;gap:10px}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks li::before{content:"";flex:none;width:20px;height:20px;margin-top:4px;border-radius:50%;background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/12px no-repeat}
+
+/* booth */
+.booth{background:var(--ink);color:#f6f1e6}
+.booth .sub{color:#b9c2bc}
+.booth .grid3 .card{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12)}
+.booth .card p{color:#b9c2bc}
+.booth .card h4{color:#fff}
+.booth .eyebrow{color:var(--haldi)}
+
+/* join */
+.join{text-align:center}
+.join .sub{margin:0 auto 28px}
+.join .cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+footer{border-top:1px solid var(--line);padding:30px 0;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+footer a{color:var(--green);font-weight:700;text-decoration:none}
+
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:30;width:56px;height:56px;border-radius:50%;background:#1f9d55;color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(0,0,0,.4)}
+.wa-float svg{width:28px;height:28px}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+@media (max-width:900px){
+  .nav ul{display:none}
+  .hero .wrap,.about .wrap,.samasya .wrap{grid-template-columns:1fr;gap:36px}
+  .hero{padding-top:32px}
+  .ballot{left:12px;bottom:12px}
+  .grid3{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  section{padding:64px 0}
+  .tl{grid-template-columns:1fr;gap:2px}
+}
+@media (max-width:480px){
+  .row2,.facts{grid-template-columns:1fr}
+  .timer div{min-width:64px}
+  .nav .btn{padding:9px 14px;font-size:14px}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-bar">यह एक <b>नमूना (डेमो) वेबसाइट</b> है — प्रत्याशी काल्पनिक है। आपके नाम, फोटो और वादों के साथ ऐसी वेबसाइट <b>Hanucode</b> बनाता है।</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="राजेश कुमार — होम">
+      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="37" height="37" rx="10" stroke="currentColor" stroke-width="3"/><path d="M20 9 L29 20 L20 31 L11 20 Z" fill="#e3a52a"/><path d="M20 15v10M15 20h10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      राजेश कुमार
+    </a>
+    <ul>
+      <li><a href="#parichay">परिचय</a></li>
+      <li><a href="#sankalp">संकल्प</a></li>
+      <li><a href="#kaam">काम</a></li>
+      <li><a href="#samasya">समस्या बताएँ</a></li>
+      <li><a href="#booth">मतदान</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#jude">साथ जुड़ें</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding-top:56px">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="tag">ग्राम पंचायत चुनाव 2026</span>
+      <h1>गाँव का बेटा,<br><span>गाँव की आवाज़</span></h1>
+      <p class="role">राजेश कुमार — ग्राम प्रधान पद प्रत्याशी, ग्राम पंचायत रामपुर</p>
+      <p class="lead">15 साल से गाँव की हर खुशी और हर परेशानी में साथ। अब पक्की सड़क, साफ़ पानी और हर घर तक योजनाओं का लाभ पहुँचाने का संकल्प।</p>
+      <div class="cta">
+        <a class="btn btn-haldi" href="#samasya">अपनी समस्या बताएँ</a>
+        <a class="btn btn-ghost" href="#sankalp">हमारा संकल्प पढ़ें</a>
+      </div>
+    </div>
+    <div class="hero-img reveal">
+      <img src="img/hero.jpg" alt="प्रत्याशी राजेश कुमार हाथ जोड़कर गाँव के खेत में खड़े हैं" width="1100" height="734">
+      <div class="ballot">
+        <div class="num">4</div>
+        <div><small>बैलेट पेपर पर क्रम संख्या</small><b>4 नंबर पर मुहर लगाएँ</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="count">
+  <div class="wrap">
+    <h3>मतदान में बाकी समय<small>नमूना तारीख — असली तारीख घोषणा के बाद अपडेट होगी</small></h3>
+    <div class="timer" id="timer" aria-live="polite">
+      <div><b id="d">00</b><span>दिन</span></div>
+      <div><b id="h">00</b><span>घंटे</span></div>
+      <div><b id="m">00</b><span>मिनट</span></div>
+      <div><b id="s">00</b><span>सेकंड</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="about" id="parichay">
+  <div class="wrap">
+    <img class="reveal" src="img/chaupal.jpg" alt="गाँव की चौपाल में नीम के पेड़ के नीचे ग्रामीणों के साथ बैठक" width="1400" height="934" loading="lazy">
+    <div class="reveal">
+      <p class="eyebrow">परिचय</p>
+      <h2>चौपाल से चुनाव तक, हर कदम आपके साथ</h2>
+      <p class="sub">किसान परिवार से आने वाले राजेश कुमार ने गाँव के स्कूल से पढ़ाई की और पिछले 15 साल से स्वयं सहायता समूहों, किसान पंजीकरण और पेंशन के कामों में गाँव वालों की मदद कर रहे हैं।</p>
+      <div class="facts">
+        <div><small>उम्र</small><b>45 वर्ष</b></div>
+        <div><small>शिक्षा</small><b>स्नातक (बी.ए.)</b></div>
+        <div><small>पेशा</small><b>किसान एवं समाजसेवी</b></div>
+        <div><small>सामाजिक कार्य</small><b>15+ वर्ष</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sankalp" id="sankalp">
+  <div class="wrap">
+    <p class="eyebrow">हमारा संकल्प</p>
+    <h2>पाँच साल, छह बड़े काम</h2>
+    <p class="sub">हर वादे की प्रगति इसी वेबसाइट पर हर महीने अपडेट होगी, ताकि गाँव खुद हिसाब देख सके।</p>
+    <div class="grid3">
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20L10 4M20 20L14 4M12 6v2M12 11v2M12 16v2"/></svg></div><h4>पक्की सड़क और नाली</h4><p>हर मजरे और टोले तक इंटरलॉकिंग सड़क और ढकी हुई नाली।</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s6 7 6 11a6 6 0 01-12 0c0-4 6-11 6-11z"/></svg></div><h4>हर घर साफ़ पानी</h4><p>जल जीवन मिशन के नल हर घर तक, खराब हैंडपंप 7 दिन में ठीक।</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10l9-6 9 6M5 10v9h14v-9M10 19v-5h4v5"/></svg></div><h4>स्कूल और आंगनबाड़ी</h4><p>बच्चों के लिए बेहतर बैठने की व्यवस्था, शौचालय और पुस्तकालय कोना।</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><h4>पेंशन और योजनाएँ</h4><p>वृद्धा, विधवा और दिव्यांग पेंशन के फॉर्म पंचायत भवन में ही भरवाने की सुविधा।</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M5 9c0 6 3 10 7 13 4-3 7-7 7-13"/></svg></div><h4>किसान सहायता केंद्र</h4><p>खाद-बीज की जानकारी, फसल बीमा और किसान सम्मान निधि में मदद।</p></div>
+      <div class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7V16h8v-1.3A7 7 0 0012 2z"/></svg></div><h4>स्ट्रीट लाइट और सुरक्षा</h4><p>मुख्य रास्तों और चौराहों पर सोलर स्ट्रीट लाइट।</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="kaam">
+  <div class="wrap">
+    <p class="eyebrow">अब तक का काम</p>
+    <h2>वादे नहीं, काम बोलता है</h2>
+    <p class="sub">पद के बिना भी गाँव के लिए किए गए काम — आंकड़े नमूने के तौर पर दिखाए गए हैं।</p>
+    <div class="stats">
+      <div class="stat reveal"><b data-to="320">0</b><span>पेंशन फॉर्म भरवाए</span></div>
+      <div class="stat reveal"><b data-to="18">0</b><span>स्वयं सहायता समूह बने</span></div>
+      <div class="stat reveal"><b data-to="540">0</b><span>किसान पंजीकरण</span></div>
+      <div class="stat reveal"><b data-to="12">0</b><span>स्वास्थ्य शिविर</span></div>
+    </div>
+    <div class="timeline">
+      <div class="tl reveal"><time>2024</time><div>गाँव में पहला मुफ़्त नेत्र जाँच शिविर, 400+ लोगों की जाँच।</div></div>
+      <div class="tl reveal"><time>2022</time><div>बाढ़ के समय 3 मजरों में राशन और दवाइयाँ पहुँचाईं।</div></div>
+      <div class="tl reveal"><time>2019</time><div>महिलाओं के लिए सिलाई प्रशिक्षण केंद्र शुरू करवाया।</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="samasya sankalp" id="samasya">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">आपकी बात, सीधे प्रत्याशी तक</p>
+      <h2>अपने मोहल्ले की समस्या बताएँ</h2>
+      <p class="sub">आपकी हर शिकायत दर्ज होगी और टीम 48 घंटे में आपसे संपर्क करेगी।</p>
+      <ul class="checks">
+        <li>हर शिकायत को एक नंबर मिलता है</li>
+        <li>वार्ड और मजरे के हिसाब से सूची बनती है</li>
+        <li>जीत के बाद पहले 100 दिन में इन्हीं पर काम</li>
+      </ul>
+    </div>
+    <form id="form" class="reveal" novalidate>
+      <div class="row2">
+        <label>आपका नाम<input name="naam" required placeholder="जैसे: सुनीता देवी"></label>
+        <label>मोबाइल नंबर<input name="mobile" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10 अंकों का नंबर"></label>
+      </div>
+      <div class="row2">
+        <label>मजरा / टोला
+          <select name="majra"><option>रामपुर मुख्य</option><option>पूरब टोला</option><option>नया पुरवा</option><option>कुम्हारन टोला</option></select>
+        </label>
+        <label>समस्या का प्रकार
+          <select name="type"><option>सड़क / नाली</option><option>पानी</option><option>बिजली</option><option>पेंशन / राशन</option><option>अन्य</option></select>
+        </label>
+      </div>
+      <label>समस्या विस्तार से<textarea name="msg" rows="4" required placeholder="अपनी समस्या यहाँ लिखें"></textarea></label>
+      <button class="btn btn-primary" type="submit" style="justify-self:start">समस्या दर्ज करें</button>
+      <div class="ok" id="ok" role="status"></div>
+    </form>
+  </div>
+</section>
+
+<section class="booth" id="booth">
+  <div class="wrap">
+    <p class="eyebrow">मतदान की जानकारी</p>
+    <h2>वोट डालने से पहले ये जान लें</h2>
+    <p class="sub">अपना बूथ और क्रम संख्या पहले से देख लें, ताकि मतदान के दिन कोई परेशानी न हो।</p>
+    <div class="grid3">
+      <div class="card"><h4>अपना बूथ</h4><p>प्राथमिक विद्यालय रामपुर (बूथ 1 और 2), पंचायत भवन पूरब टोला (बूथ 3)।</p></div>
+      <div class="card"><h4>साथ क्या लाएँ</h4><p>वोटर आईडी कार्ड, या आधार / राशन कार्ड जैसा कोई मान्य पहचान पत्र।</p></div>
+      <div class="card"><h4>मदद चाहिए?</h4><p>बुज़ुर्ग और दिव्यांग मतदाताओं के लिए हमारे स्वयंसेवक बूथ पर मौजूद रहेंगे।</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="join" id="jude">
+  <div class="wrap reveal">
+    <p class="eyebrow">साथ जुड़ें</p>
+    <h2>बदलाव की इस मुहिम का हिस्सा बनें</h2>
+    <p class="sub">स्वयंसेवक बनें या WhatsApp पर रोज़ के अपडेट पाएँ।</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#samasya">स्वयंसेवक बनें</a>
+      <a class="btn btn-haldi" href="https://wa.me/?text=%E0%A4%AE%E0%A5%88%E0%A4%82%20%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A5%87%E0%A4%B6%20%E0%A4%95%E0%A5%81%E0%A4%AE%E0%A4%BE%E0%A4%B0%20%E0%A4%9C%E0%A5%80%20%E0%A4%95%E0%A5%87%20%E0%A4%B8%E0%A4%BE%E0%A4%A5%20%E0%A4%9C%E0%A5%81%E0%A4%A1%E0%A4%BC%E0%A4%A8%E0%A4%BE%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%A4%E0%A4%BE%20%E0%A4%B9%E0%A5%82%E0%A4%81" target="_blank" rel="noopener">WhatsApp पर जुड़ें</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>नमूना वेबसाइट · प्रत्याशी, आंकड़े और तारीखें काल्पनिक हैं।</span>
+    <span>डिज़ाइन और डेवलपमेंट: <a href="#top">Hanucode</a></span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp पर संपर्क करें">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.2-1.3c-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+// countdown to sample date
+const target = new Date('2026-11-15T07:00:00+05:30').getTime();
+const pad = n => String(n).padStart(2,'0');
+function tick(){
+  let t = Math.max(0, target - Date.now());
+  const d = Math.floor(t/864e5); t -= d*864e5;
+  const h = Math.floor(t/36e5); t -= h*36e5;
+  const m = Math.floor(t/6e4); t -= m*6e4;
+  const s = Math.floor(t/1e3);
+  document.getElementById('d').textContent = pad(d);
+  document.getElementById('h').textContent = pad(h);
+  document.getElementById('m').textContent = pad(m);
+  document.getElementById('s').textContent = pad(s);
+}
+tick(); setInterval(tick, 1000);
+
+// reveal + counters
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if(!e.isIntersecting) return;
+  e.target.classList.add('in');
+  const b = e.target.querySelector('[data-to]');
+  if(b){ const to=+b.dataset.to, st=performance.now();
+    const step=now=>{const p=Math.min(1,(now-st)/1200); b.textContent=Math.round(to*(1-Math.pow(1-p,3)))+'+'; if(p<1) requestAnimationFrame(step);};
+    requestAnimationFrame(step); }
+  io.unobserve(e.target);
+}), {threshold:.15});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// form
+document.getElementById('form').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target, ok = document.getElementById('ok');
+  const naam = f.naam.value.trim(), mob = f.mobile.value.trim(), msg = f.msg.value.trim();
+  ok.style.display = 'block';
+  if(!naam || !/^[0-9]{10}$/.test(mob) || !msg){
+    ok.style.background='#f7e3d9'; ok.style.color='#8a3414';
+    ok.textContent = 'कृपया नाम, 10 अंकों का मोबाइल नंबर और समस्या भरें।'; return;
+  }
+  const id = 'RP-' + Math.floor(1000 + Math.random()*9000);
+  ok.style.background=''; ok.style.color='';
+  ok.textContent = `धन्यवाद ${naam} जी, आपकी समस्या दर्ज हो गई है। शिकायत नंबर: ${id} (डेमो)`;
+  f.reset();
+});
+</script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>
